@@ -1,0 +1,11 @@
+{
+  "name": "theka",
+  "version": "0.1.0",
+  "description": "A small language for tabla. Type bols, hear them played.",
+  "private": true,
+  "license": "MIT",
+  "scripts": {
+    "test": "node --test",
+    "start": "node serve.js"
+  }
+}

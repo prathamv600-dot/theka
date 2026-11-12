@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>theka - type tabla, hear tabla</title>
+  <meta name="description" content="A small language for tabla. Type bols, hear them played, watch the taal go round.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <h1>theka</h1>
+  <p>Type tabla bols. Press play. <span class="quiet">Nothing is recorded, every stroke is worked out in your browser.</span></p>
+</header>
+
+<main>
+  <section class="desk">
+    <div class="bar">
+      <button id="play" class="primary" title="Ctrl+Enter">Play</button>
+      <label class="tempo">tempo
+        <input type="range" id="tempo" min="40" max="300" step="1" value="100">
+        <output id="tempoOut">100</output>
+      </label>
+      <label><input type="checkbox" id="loop" checked> repeat</label>
+      <label><input type="checkbox" id="drone"> tanpura</label>
+    </div>
+
+    <div class="editor">
+      <pre id="paint" aria-hidden="true"></pre>
+      <textarea id="src" spellcheck="false" autocomplete="off" autocapitalize="off" aria-label="composition"></textarea>
+    </div>
+
+    <div id="msgs" aria-live="polite"></div>
+
+    <div class="bar under">
+      <select id="examples" aria-label="examples"></select>
+      <button id="share">Copy link</button>
+      <button id="wav">Save as .wav</button>
+    </div>
+  </section>
+
+  <section class="stage">
+    <div class="wheelbox">
+      <canvas id="wheel"></canvas>
+      <div class="now">
+        <div id="bol"></div>
+        <div id="count"></div>
+      </div>
+    </div>
+    <p class="legend">
+      <span class="dot dayan"></span> right hand (dayan)
+      <span class="dot bayan"></span> left hand (bayan)
+      <span class="dot hollow"></span> closed stroke
+    </p>
+  </section>
+</main>
+
+<section class="help">
+  <h2>How to write it</h2>
+  <div class="cols">
+    <table>
+      <tr><td><code>dha dhin dhin dha</code></td><td>one bol per matra</td></tr>
+      <tr><td><code>-</code></td><td>a rest</td></tr>
+      <tr><td><code>dhage tirakita</code></td><td>bols run together share one matra</td></tr>
+      <tr><td><code>[dha - ge]</code></td><td>squeeze anything into one matra</td></tr>
+      <tr><td><code>dha!</code></td><td>accent</td></tr>
+      <tr><td><code>|</code></td><td>bar line, only for your eyes</td></tr>
+    </table>
+    <table>
+      <tr><td><code>(dha ti ta)*3</code></td><td>repeat</td></tr>
+      <tr><td><code>(dha ti ta)@2</code></td><td>double speed (<code>@3</code>, <code>@4</code>...)</td></tr>
+      <tr><td><code>mukh = dha dha te te</code></td><td>name a phrase, then just write <code>mukh</code></td></tr>
+      <tr><td><code>tihai(dha ti ta)</code></td><td>three times, landing on sam</td></tr>
+      <tr><td><code>taal rupak</code></td><td>teentaal, keherwa, dadra, rupak, jhaptaal, ektaal</td></tr>
+      <tr><td><code>bpm 120</code> &nbsp; <code>sa c#</code></td><td>tempo, and what the drum is tuned to</td></tr>
+    </table>
+  </div>
+  <p class="bols">
+    <b>Bols:</b>
+    dha dhin dhi (both hands) &middot;
+    ta na tin tun tu (right, ringing) &middot;
+    te ti ra (right, closed) &middot;
+    ge ghe ga (left, bass) &middot;
+    ke ka ki kat (left, slap)
+  </p>
+</section>
+
+<footer>
+  theka is about 1,500 lines of plain JavaScript with no dependencies. How it works is in the README.
+</footer>
+
+<script src="src/taals.js"></script>
+<script src="src/lang.js"></script>
+<script src="src/examples.js"></script>
+<script src="src/tabla.js"></script>
+<script src="src/player.js"></script>
+<script src="src/wheel.js"></script>
+<script src="src/app.js"></script>
+</body>
+</html>
