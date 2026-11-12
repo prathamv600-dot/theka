@@ -2,6 +2,8 @@
 
 A small language for tabla. You type the bols, the browser plays them.
 
+**Try it here: https://prathamv600-dot.github.io/theka/**
+
 ![theka playing a Delhi kayda](docs/screenshot.jpg)
 
 ```
